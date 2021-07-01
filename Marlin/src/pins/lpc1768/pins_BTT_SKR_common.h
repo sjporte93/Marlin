@@ -39,19 +39,6 @@
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 //
-// Steppers
-//
-#ifndef E1_STEP_PIN
-  #define E1_STEP_PIN                      P0_01
-#endif
-#ifndef E1_DIR_PIN
-  #define E1_DIR_PIN                       P0_00
-#endif
-#ifndef E1_ENABLE_PIN
-  #define E1_ENABLE_PIN                    P0_10
-#endif
-
-//
 // Temperature Sensors
 //  3.3V max when defined as an analog input
 //
@@ -196,3 +183,30 @@
   #endif
 
 #endif // BTT_MOTOR_EXPANSION
+
+
+//
+// Steppers
+//
+#ifndef E1_STEP_PIN
+  #define E1_STEP_PIN                      P0_01
+#endif
+#ifndef E1_DIR_PIN
+  #define E1_DIR_PIN                       P0_00
+#endif
+#ifndef E1_ENABLE_PIN
+  #define E1_ENABLE_PIN                    P0_10
+#endif
+
+
+//
+// Limit Switches
+//
+#ifdef X2_STALL_SENSITIVITY
+  #define X2_STOP_PIN                  X2_DIAG_PIN
+  #if X2_HOME_TO_MIN
+    #define X2_MAX_PIN                      P1_26  // E0DET
+  #else
+    #define X2_MIN_PIN                      P1_26  // E0DET
+  #endif
+#endif
